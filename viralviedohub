@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Viral Video Expose</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHyzvfB0cwHwJoQWrHRPC-luMnSjWWfdNNPzF_Rtxfc06f25eOvB6jYtDP0Y4zXzTtDkB3E_lzgYGJvWgHpJVjbwp85cXzo_JHlo0jWF_Fn8RQbj4odCIQ5CjJ5yB7_OkI6yjIHOrfddOzuO3NKoG58GDWd0VrD5V8K6t3jWYCtvGMLLeq2riz6DlEoR16/s1024/FB_IMG_1751753963076.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+    }
+
+    .header {
+      text-align: center;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px auto;
+      max-width: 700px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .header h1 span.emoji-left,
+    .header h1 span.emoji-right {
+      font-size: 36px;
+      margin: 0 8px;
+      vertical-align: middle;
+    }
+
+    .header p {
+      margin: 10px auto 0;
+      font-size: 18px;
+      padding: 12px 20px;
+      border-radius: 12px;
+      animation: colorShift 6s infinite alternate ease-in-out;
+      background: rgba(255 255 255 / 0.25);
+      color: #fff;
+      max-width: 600px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(8px);
+    }
+
+    @keyframes colorShift {
+      0% {
+        background: rgba(255 192 203 / 0.25);
+        box-shadow: 0 0 15px rgba(255 192 203 / 0.5);
+      }
+      50% {
+        background: rgba(255 182 193 / 0.3);
+        box-shadow: 0 0 25px rgba(255 182 193 / 0.6);
+      }
+      100% {
+        background: rgba(255 105 180 / 0.3);
+        box-shadow: 0 0 15px rgba(255 105 180 / 0.4);
+      }
+    }
+
+    .telegram-box {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      text-align: center;
+      border-radius: 15px;
+      border: 2px solid #ddd;
+      background: linear-gradient(45deg, rgba(255, 255, 255, 0.7), rgba(240, 240, 240, 0.7));
+    }
+
+    .telegram-btn {
+      display: inline-block;
+      background-color: #0088cc;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 18px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .telegram-btn:hover {
+      background-color: #005f99;
+      transform: translateY(-3px);
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      max-width: 800px;
+      width: 95%;
+      padding: 20px;
+      margin: 20px auto;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      border-radius: 15px;
+      padding: 12px 18px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+      /* হালকা ফ্লোটিং এফেক্ট */
+      animation: floatUpDown 4s ease-in-out infinite;
+    }
+
+    .link-card:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+      animation-play-state: paused; /* হোভার করলে ফ্লোট বন্ধ */
+    }
+
+    .link-card img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-right: 15px;
+    }
+
+    .link-card a {
+      color: #333;
+      text-decoration: none;
+      font-size: 20px;
+      flex-grow: 1;
+      border-radius: 8px;
+      padding: 5px 10px;
+      transition: color 0.3s ease, background-color 0.3s ease;
+    }
+
+    .link-card a:hover {
+      color: #0088cc;
+      background-color: rgba(0, 136, 204, 0.08);
+    }
+
+    /* প্রতিটি বক্সের আলাদা হালকা রঙ */
+    .link-card:nth-child(1) { background-color: rgba(255, 228, 225, 0.8); }
+    .link-card:nth-child(2) { background-color: rgba(225, 255, 228, 0.8); }
+    .link-card:nth-child(3) { background-color: rgba(225, 228, 255, 0.8); }
+    .link-card:nth-child(4) { background-color: rgba(255, 255, 225, 0.8); }
+    .link-card:nth-child(5) { background-color: rgba(255, 240, 230, 0.8); }
+    .link-card:nth-child(6) { background-color: rgba(240, 255, 250, 0.8); }
+    .link-card:nth-child(7) { background-color: rgba(245, 245, 255, 0.8); }
+    .link-card:nth-child(8) { background-color: rgba(255, 250, 240, 0.8); }
+    .link-card:nth-child(9) { background-color: rgba(230, 255, 250, 0.8); }
+    .link-card:nth-child(10){ background-color: rgba(250, 240, 255, 0.8); }
+
+    @keyframes floatUpDown {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .link-card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .link-card img {
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h3>
+      <span class="emoji-left">🌹🩷</span>
+      Viral Video Expose
+      <span class="emoji-right">🌹🩷</span>
+    </h3>
+    <p>সকল ভাইরাল ভিডিওর বিশাল সমাহার, ১০০০ এর অধিক ভাইরাল ভিডিও</p>
+  </div>
+
+  <div class="telegram-box">
+    <h2>টেলিগ্রাম চ্যানেলে যোগ দিন</h2>
+    <a href="https://mm69.online/9c1e20" class="telegram-btn">Join Telegram</a>
+  </div>
+
+  <div class="container">
+    <div class="links">
+      <div class="link-card">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhxN-7nQgM6cpgTfu1R4ADCjza7sh93U7OCXf59M6xRZ5vQcFjQ3p8gd-EF0xHER7evYNKclfGtbFGM3BP77bvFU5KbApASUstBEGWOJ5JMCujAwDKPcNbWKWVi14yIiGIxtgw42JIf0DBYQWyPCWx0EknsVNfmqxMfKNf5pOtv59HtOhPFqnZHG64eTD1V/s1338/1751525231488.jpg" alt="Image 1" />
+        <a href="https://viralviedoblog111.blogspot.com/2025/07/viral-video-color-changing-animation.html">HSC পরীক্ষার্থী মাহিরার 4 টি ভাইরাল ভিডিও</a>
+      </div>
+      <div class="link-card">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxNxHzF9k3QSox7Bi1GORSe-5q1B7OdN5-BT40ilwfx5QlWgO-5wO7hUPTDzgNJPGMbcJEnTGkLyAJnuNAD33oqM-IcaqCRxFFC-ZZ4wHnGVWacf6VNxagbO2nh39wOIGygATrmZIeVK5sMVbraxE4uMUGLUUmwTRBuwjVLLTxAnvhtOe48O2shjjpdez4/s619/IMG_20250602_044230_035.jpg" alt="Image 2" />
+        <a href="https://viralviedoblog111.blogspot.com/2025/06/blog-post.html">টিকটকার শান্তি রহমানের ভাইরাল ভিডিও </a>
+      </div>
+     <div class="link-card">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZNpszuf5DLuGWOx6a5Ihyphenhyphentsb19b1hH_YduxXKDmV9-a4ItvqE2vsNAopM4NX_j25KUUZBulCMUscLznoukElur4TgPKz7OFWobfjo9SB_L1wmf_2ujjfU8-BQzWEfCghDwbAy5mAKyaRMklj1TqZBnMuYlok1evETaJG_0vylMOKDIDulcKAqV7-miaba/s1682/IMG_20250131_153851.jpg" alt="Image 4" />
+        <a href="https://viralviedoblog111.blogspot.com/2025/01/blog-post_31.html">জান্নাত তোহা ৩ মিনিটে ২১ সেকেন্ডের ভাইরাল ভিডিও</a>
+      </div>
+<div class="link-card">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEYp3-kOl0qFbPxDyhYZG7OTOc6frmLwRqY5QH8hfldlYQC7gDBl2__kyWf0VeYhA73l9p5_WtDzpew8VsF2DfxLBGY8hDct-w2LwDpH50nsLieg-d4vc4hT5lM9peNp2JF6VN_Sokqvd61MRMrK2jhI_FsK88cFp_yRsBaItnLfqcj_Y9C7g5lDgaluyj/s976/Screenshot_2025-07-06-04-30-55-063-edit_com.miui.gallery.jpg" alt="Image 4" />
+        <a href="https://data852.click/3d0bdeaff40630e666df/63835b5a55/?placementName=kam1">ভাইরাল দেশী গাভী</a>
+      </div>
+
+ <div class="link-card">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxmEQm7AduJGo1vL-8WKxc154xHkm3klGrI4md7Ma6pVi70emAUQ31_W7fQBwD20b4zqQaAHF1OTSEtgdX4v6rtjeODPzLmpbzSlhd6TOG3DQr6g7k-SmUBHdJWIT-_5usJn7NWBZrpQELlP6hLlbaoF6Z46xazWbSQJNeyjL2B3EQnaBU4a6719vGtCIM/s640/sddefault%20(1).jpg" alt="Image 8" />
+        <a href="https://viralviedoblog111.blogspot.com/2025/05/tiktoker-othoi-113.html">Tiktoker Othoi 1.13 সেকেন্ডের ভাইরাল ভিডিও </a>
+</div>
+ <div class="link-card">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjupZ-QL1_INjxPg6fXu1w9BdJihG6-on5bKFqnL2L_NvmUpnqbIcoseUfrH7eUV7yiGwSDCU79oZ_iVWoxhbbXcwwgVnCqz06eydEpfFvVU9ejbldovu4AoVAgSxWAtx9zF_6NLlZ50nWLyvYSUnhPZC8AxLjL345IVWMgw9H1fLwl0PTJgcu2-tWf39Ve/s686/hq720.jpg" alt="Image 9" />
+        <a href="https://viralviedoblog111.blogspot.com/2025/06/1-viral-ridhi.html">ভাইরাল রিধির ফুল ভিডিও পার্ট -1 (Viral-Ridhi)</a>
+      </div>
+<div class="link-card">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEie4-MXvMGBIPrM4fDyA0_z9tR_66YbjXYhpP_rrsOuKF9rBL5txljaTT4qvd-mGE20QDcH7INuJYPkmhrey6RPTqK6mSg6ysxXSsDQvrlrcfrD3b53GBJtNs_y4RAcqnXGhAv61fLzuuCACJHyEGaHEV59reFPN_boTxOAhByidmXafjH11m3yWQVH_4qL/s1080/IMG_20250526_113906.jpg" alt="Image 3" />
+        <a href="https://viralviedoblog111.blogspot.com/2025/05/sadia-jahan-prova-mms-video.html">মডেল নায়িকা Sadia Jahan prova ভাইরাল MMS VIDEO</a>
+      </div>
+      
+      <div class="link-card">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjXOTRZemYiA4Ey6QcWCcp8HbsZxlbQ8iyc95qK4EcBsTanyJKyWT0yg5Ws2DXoTtz5PaqbHfkhsl23uGo56rGGv_d64JAZ89IDGY_wkDO3EFIxxQfw6YqagbBmjGmONPN2Cxk8PegsIewE6XOw9ZjFhu9XhgmzGQGz48n2F1qz5jiO-iQ9AcFZUFQDGV_/s214/1747079558657.jpg" alt="Image 5" />
+        <a href="https://viralviedoblog111.blogspot.com/2025/05/anamikamamun-viral-video.html">অনামিকা ঐশী - প্রিন্স মামুন ভাইরাল ভিডিও</a>
+      </div>
+      <div class="link-card">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7xutqPMgv2whcoXYrVSz8UDaa5dwHtua4Lbf0BE-LWkiAbITPBnrQijRqhA681nFKPkwKgy0EbyWqJM-qfZnAsqYxT_jvk63wJQ70Yn2uVDFzTlEGMDSNVG-zBO8bo3wygDeweEH0YAfIF5ty9M7u1Mp71V-aNATzHtfos-xtFWlOYzwzhSQwrFMs0cM/s1086/Screenshot_2024-10-16-12-57-03-831-edit_com.miui.gallery.jpg" alt="Image 6" />
+        <a href="https://viralviedoblog111.blogspot.com/2025/01/blog-post.html">শিক্ষক ছাত্রী ভাইরাল ভিডিও</a>
+      </div>
+      <div class="link-card">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgO9ovgUdW6GfaeCuwpqeGY50EE3h7cNRtohRMbeeXJM8lo_z7U-S7t_S2r3mjAMnH2Q_N9HSN4F7i_mD_0gIi8RxBMNEV_FLeVZ-CzaW7ER3F-R_sPONlu-ewYZoeZXTl8MAfjKPKA7eHh-TFoC930RWEhQ5hIorUUd8KlT1Mul2xTnDZqqNFouFA0JG5r/s1080/Screenshot_2025-01-30-11-25-37-311-edit_com.miui.videoplayer.jpg" alt="Image 7" />
+        <a href="https://viralviedoblog111.blogspot.com/2025/01/blog-post_29.html">বয়ফ্রেন্ড গার্লফ্রেন্ড কফি শপে টিপাটিপি </a>
+      </div>
+      
+      </div>
+     
+      <div class="link-card">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6Mk3Uy6awhiRu25JpAcsUqhUMJWWk7-WWD67LK9cPGfn3xN67cs63p4ZiPlhQo6Llw-8ftOCUEEIpki6pWFbmsRDFXiTzEa3624vCZrLeBkEVZxLKE12NiBNgayFb_SXe3w6Khb-HEcaCvCHv305e6TwBtL1uz69IpQYjiN0IgR8QEeCcvTIWw2ZIJq5p/s640/sddefault.jpg" alt="Image 10" />
+        <a href="https://viralviedoblog111.blogspot.com/2025/05/tasnim-ayesha.html">Tasnim Ayesha এর ভাইরাল হওয়া কালেকশন(৮৪ টি ছবি ভিডিও )</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
